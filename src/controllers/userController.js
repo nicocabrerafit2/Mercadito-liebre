@@ -3,7 +3,7 @@ const path = require("path");
 const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 
-const controller = {
+module.exports = {
   home: (req, res) => {
     res.resdirect("home", {
       user: req.session.userLogged,
@@ -67,7 +67,7 @@ const controller = {
   },
 
   register: (req, res) => {
-    res.render("userRegister", {});
+    return res.render("userRegister", {});
   },
   // Create -  Method to store
 
@@ -149,5 +149,3 @@ const controller = {
   // Agregar metodo para borrar usuario (eliminar cuenta, borrado logico)
   // Agregar metodo para modificar usuario (modificar datos)
 };
-
-module.exports = controller;

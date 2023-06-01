@@ -1,14 +1,12 @@
-// **** Require's ****
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const path = require("path");
 const { body } = require("express-validator");
-// **** Controller Require ****
 const userController = require("../controllers/userController");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../sitio_photo_art/public/images/imgU");
+    cb(null, "../Mercadito-liebre/public/img/imgU");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + path.extname(file.originalname));
