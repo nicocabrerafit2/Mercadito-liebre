@@ -1,0 +1,8 @@
+.imagenHeaderLogo {
+  width: 200px;
+}
+.headerBox {
+  display: grid;
+  margin: 15px;
+  background-color: yellow;
+}
