@@ -1,8 +1,12 @@
-.imagenHeaderLogo {
-  width: 200px;
-}
 .headerBox {
-  display: grid;
-  margin: 15px;
-  background-color: yellow;
+  font-family: "Roboto", arial;
+  background-color: #fff159;
+}
+.imagenHeaderLogo {
+  width: 150px;
+}
+.localication {
+  border-top: gray;
+  border-top-style: solid;
+  border-top-width: 1px;
 }

@@ -1,22 +1,81 @@
 <header>
   <div class="headerBox">
     <a href="/"
-      ><img class="imagenHeaderLogo" src="/img/logoMercaditoLiebre.svg"
+      ><img class="imagenHeaderLogo" src="/img/logo-mercado-liebre.svg"
     /></a>
-    <p>Compra en cuotas y sin tarjeta de credito</p>
-    <nav>
-      <ul>
-        <li><a href="/misCompras">Ofertas</a></li>
-        <li><a href="/miCuenta">Tiendas oficiales</a></li>
-        <li><a href="/notificaciones/">Vender</a></li>
-        <li><a href="/ayuda">Ayuda</a></li>
-      </ul>
-    </nav>
-
-    <ul>
-      <li><a href="/users/Login">Ingresá</a></li>
-      <li><a href="/users/Register">Crea tu cuenta</a></li>
-      <li><a href="/users/Register">Mis cuentas</a></li>
-    </ul>
+    <div class="burger-menu">
+      <i class="fas fa-bars"></i>
+      <i class="fas fa-bars"></i>
+    </div>
+    <p class="localication">Ingresa tu domicilio</p>
+    <div id="carouselExampleIndicators" class="carousel slide">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="/img/D_NQ_632689-MLA69574310400_052023-OO.webp"
+            class="d-block w-100"
+            alt="producto 1"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="/img/D_NQ_684941-MLA69724614122_052023-OO.webp"
+            class="d-block w-100"
+            alt="producto 2"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="/img/D_NQ_809296-MLA69735346481_052023-OO.webp"
+            class="d-block w-100"
+            alt="producto 3"
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <section>
+      <p>Mismo precio en hasta 6 cuotas</p>
+      <p>Ver promociones bancarias</p>
+    </section>
   </div>
 </header>
