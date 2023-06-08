@@ -1,3 +1,9 @@
+/*padding y border forman parte del width en todo el sitio*/
+* {
+  box-sizing: border-box;
+}
+
+/*Inicia CSS del header*/
 .headerMain {
   font-family: "Roboto", arial;
   font-size: small;
@@ -11,7 +17,7 @@
   padding: 6px;
 }
 .imagenHeaderLogo {
-  width: 130px;
+  width: 40px;
 }
 .localication {
   border-top: gray;
@@ -24,4 +30,55 @@
 }
 .localication p {
   margin: 0;
+}
+
+/*Inicia CSS del footer*/
+
+.promoDeApp {
+  font-family: "Roboto", arial;
+  font-size: small;
+  background-color: #fff159;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.imagenFooter {
+  border-radius: 20%;
+  padding: 9px 4px;
+  box-shadow: 0 0 2px 0.5px grey;
+  margin-right: 12px;
+}
+.imagenFooterLogo {
+  width: 35px;
+}
+.promoDeApp p {
+  margin: 0;
+}
+
+.legales {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+.legales p {
+  display: inline;
+  font-size: small;
+  font-family: "roboto", arial;
+}
+.ulLinks {
+  display: flex;
+}
+.ulListaLinks {
+  list-style: none;
+}
+.ulLinkLoginAndRegister {
+  list-style: none;
+  display: flex;
+  color: rgb(44, 92, 248);
+}
+.ulLinkLoginAndRegister ul li {
+  list-style: none;
+  display: inline;
 }
