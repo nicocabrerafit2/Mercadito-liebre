@@ -1,12 +1,27 @@
-.headerBox {
+.headerMain {
   font-family: "Roboto", arial;
+  font-size: small;
   background-color: #fff159;
 }
+.headerBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px;
+}
 .imagenHeaderLogo {
-  width: 150px;
+  width: 130px;
 }
 .localication {
   border-top: gray;
   border-top-style: solid;
   border-top-width: 1px;
+  display: flex;
+  padding: 6px;
+  justify-content: space-between;
+  align-items: center;
+}
+.localication p {
+  margin: 0;
 }
