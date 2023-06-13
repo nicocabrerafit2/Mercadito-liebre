@@ -9,12 +9,15 @@ module.exports = {
       user: req.session.userLogged,
     });
   },
+  login: (req, res) => {
+    return res.render("userLogin", {});
+  },
+  register: (req, res) => {
+    return res.render("userRegister", {});
+  },
 
   list: function (req, res) {
     res.render("userList", { users: users, user: req.session.userLogged });
-  },
-  login: (req, res) => {
-    return res.render("userLogin", {});
   },
 
   detail: (req, res) => {
@@ -66,9 +69,6 @@ module.exports = {
     }
   },
 
-  register: (req, res) => {
-    return res.render("userRegister", {});
-  },
   // Create -  Method to store
 
   store: (req, res) => {

@@ -69,6 +69,7 @@
 }
 .ulLinks {
   display: flex;
+  justify-content: center;
 }
 .ulListaLinks {
   list-style: none;
@@ -77,8 +78,15 @@
   list-style: none;
   display: flex;
   color: rgb(44, 92, 248);
+  justify-content: center;
 }
 .ulLinkLoginAndRegister ul li {
   list-style: none;
   display: inline;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+/*Inicia CSS del home*/
+.imagenProduct {
+  width: 250px;
 }
