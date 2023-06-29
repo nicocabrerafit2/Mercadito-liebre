@@ -1,9 +1,9 @@
-/*padding y border forman parte del width en todo el sitio*/
+/*-------------------padding y border forman parte del width en todo el sitio------------*/
 * {
   box-sizing: border-box;
 }
 
-/*Inicia CSS del header*/
+/*-------------------------------------Inicia CSS del header----------------------*/
 .headerMain {
   font-family: "Roboto", arial;
   font-size: small;
@@ -32,7 +32,7 @@
   margin: 0;
 }
 
-/*Inicia CSS del footer*/
+/*-----------------------------------Inicia CSS del footer----------------------------*/
 
 .promoDeApp {
   font-family: "Roboto", arial;
@@ -86,7 +86,79 @@
   margin-left: 20px;
   margin-right: 20px;
 }
-/*Inicia CSS del home*/
+/*---------------------------------------Inicia CSS del home-------------------------------*/
+.mainHome {
+  background-color: rgb(216, 216, 216);
+}
 .imagenProduct {
   width: 250px;
+}
+.cuotasHome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cuotasHome p {
+  margin: 0;
+  margin-left: 20px;
+}
+.promoBancaria {
+  color: blue;
+}
+.sectionHomeOfertas {
+  background-color: white;
+  margin: 20px;
+  padding: 10px;
+  padding-left: 15;
+  padding-right: 0;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(216, 216, 216);
+}
+.sectionHomeOfertas article img {
+  width: 20vw;
+  margin-right: 15px;
+}
+.sectionHomeOfertas article p {
+  margin: 0;
+}
+.sectionHomeOfertas article {
+  border-color: rgb(171, 171, 171);
+  border-style: solid;
+  border-width: 0.5px;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  margin: 0;
+  display: flex;
+  padding: 20px;
+  padding-left: 0;
+  justify-content: left;
+}
+.sectionHomeCrearCuenta {
+  background-color: white;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(216, 216, 216);
+  text-align: center;
+  justify-content: center;
+}
+.sectionHomeCrearCuenta p {
+  margin: 0;
+}
+.sectionHomeCrearCuenta button {
+  margin: 4px 0px 4px;
+  width: 100%;
+  color: white;
+  background-color: rgb(36, 126, 216);
+  border-radius: 7px;
+}
+.consultaSiTieneCuenta {
+  display: flex;
+  justify-content: center;
+}
+.consultaSiTieneCuenta a {
+  text-decoration: none;
 }

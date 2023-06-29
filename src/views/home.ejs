@@ -3,7 +3,7 @@
   <%- include ('./partials/head') %>
   <body>
     <%- include ('./partials/header') %>
-    <main>
+    <main class="mainHome">
       <div id="carouselExampleIndicators" class="carousel slide">
         <div class="carousel-indicators">
           <button
@@ -69,11 +69,14 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <section>
-        <p>Mismo precio en hasta 6 cuotas</p>
-        <p>Ver promociones bancarias</p>
+      <section class="cuotasHome">
+        <i class="fas fa-bars"></i>
+        <div>
+          <p>Mismo precio en hasta 6 cuotas</p>
+          <p class="promoBancaria">Ver promociones bancarias</p>
+        </div>
       </section>
-      <section class="sectio">
+      <!--  SECCION ULTIMA VISITA<section class="section">
         <h3>Basado en tu ultima visita</h3>
         <article class="article">
           <a href="/products/detail"
@@ -112,23 +115,40 @@
           <p>15% off</p>
           <p>TV Samsung 43"</p>
         </article>
+      </section>-->
+      <section class="sectionHomeOfertas">
+        <h3>Ofertas</h3>
+        <article class="article">
+          <img
+            class="imagenProduct"
+            src="/img/images/img-cafetera-moulinex.jpg"
+          />
+          <div>
+            <h4>$5.000</h4>
+            <p>40% off</p>
+            <p>Cafetera moulinex</p>
+          </div>
+        </article>
+        <article class="article">
+          <img
+            class="imagenProduct"
+            src="/img/images/img-macbook-pro-2019.jpg"
+          />
+          <div>
+            <h4>$230.000</h4>
+            <p>20% off</p>
+            <p>Notebook Hp</p>
+          </div>
+        </article>
       </section>
-      <h3>Ofertas</h3>
-      <article class="article">
-        <img
-          class="imagenProduct"
-          src="/img/images/img-cafetera-moulinex.jpg"
-        />
-        <h4>$5.000</h4>
-        <p>40% off</p>
-        <p>Cafetera moulinex</p>
-      </article>
-      <article class="article">
-        <img class="imagenProduct" src="/img/images/img-macbook-pro-2019.jpg" />
-        <h4>$230.000</h4>
-        <p>20% off</p>
-        <p>Notebook Hp</p>
-      </article>
+      <section class="sectionHomeCrearCuenta">
+        <p>¡Creá una cuenta y mejorá tu experiencia!</p>
+        <button>Crear cuenta</button>
+        <div class="consultaSiTieneCuenta">
+          <p>¿Ya tiene cuenta?</p>
+          <a href="">Ingresar</a>
+        </div>
+      </section>
     </main>
 
     <%- include ('./partials/footer') %>
