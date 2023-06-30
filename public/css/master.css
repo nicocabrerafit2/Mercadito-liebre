@@ -155,10 +155,29 @@
   background-color: rgb(36, 126, 216);
   border-radius: 7px;
 }
+.sectionHomeCrearCuenta button a {
+  color: white;
+  text-decoration: none;
+}
 .consultaSiTieneCuenta {
   display: flex;
   justify-content: center;
 }
 .consultaSiTieneCuenta a {
   text-decoration: none;
+}
+/*--------------------------------------Inicia CSS del register-------------------------------*/
+
+.RegisterCajaMain {
+  background-color: rgb(216, 216, 216);
+}
+.RegisterMain {
+  background-color: white;
+  margin: 20px;
+  margin-top: 0;
+  padding: 10px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(216, 216, 216);
+  justify-content: left;
 }
