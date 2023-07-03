@@ -9,16 +9,11 @@
         <h2>Crear cuenta</h2>
         <img src="/images/imagen_formulario.png" />
         <% if (locals.errores) { %> <% errores.forEach(unError => { %>
-        <p class="erroresRegister"><%= unError.msg %></p>
+        <p><%= unError.msg %></p>
         <%}) %> <%}%>
 
-        <form
-          class="RegisterFormulario"
-          action="/users"
-          enctype="multipart/form-data"
-          method="POST"
-        >
-          <div class="cont_subirArchivo_productAdd">
+        <form action="/users" enctype="multipart/form-data" method="POST">
+          <div>
             <div id="div_file_productAdd">
               <div>
                 <p id="texto_boton_subir_productAdd">Subir foto de perfil</p>
@@ -33,7 +28,7 @@
             </div>
           </div>
           <p>
-            <label>Tu nombre</label>
+            <label class="labelRegisterUser">Tu nombre</label>
             <input
               type="text"
               name="nombre"
@@ -44,7 +39,7 @@
           </p>
 
           <p>
-            <label>Correo electrónico</label>
+            <label class="labelRegisterUser">Correo electrónico</label>
             <input
               type="email"
               name="email"
@@ -54,7 +49,7 @@
           </p>
 
           <p>
-            <label>Contraseña</label>
+            <label class="labelRegisterUser">Contraseña</label>
             <input
               type="password"
               name="contrasena"
@@ -64,7 +59,7 @@
             />
           </p>
 
-          <button class="RegisterButton" type="submit">Continuar</button>
+          <button type="submit">Continuar</button>
 
           <p>
             Al crear una cuenta, aceptas las

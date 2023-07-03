@@ -115,14 +115,7 @@
   border-style: solid;
   border-color: rgb(216, 216, 216);
 }
-.sectionHomeOfertas article img {
-  width: 20vw;
-  margin-right: 15px;
-}
-.sectionHomeOfertas article p {
-  margin: 0;
-}
-.sectionHomeOfertas article {
+.article {
   border-color: rgb(171, 171, 171);
   border-style: solid;
   border-width: 0.5px;
@@ -135,6 +128,14 @@
   padding-left: 0;
   justify-content: left;
 }
+.article img {
+  width: 20vw;
+  margin-right: 15px;
+}
+.article p {
+  margin: 0;
+}
+
 .sectionHomeCrearCuenta {
   background-color: white;
   margin: 20px;
@@ -172,6 +173,37 @@
   background-color: rgb(216, 216, 216);
 }
 .RegisterMain {
+  background-color: white;
+  margin: 20px;
+  margin-top: 0;
+  padding: 10px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(216, 216, 216);
+  justify-content: left;
+}
+.labelRegisterUser {
+  display: block;
+}
+
+/*--------------------------------------Inicia CSS del login-------------------------------*/
+.labelLoginUser {
+  display: block;
+}
+.loginButton {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.loginTitulo {
+  text-align: center;
+}
+.loginCambioDeContraseña {
+  text-align: center;
+}
+.loginCajaMain {
+  background-color: rgb(216, 216, 216);
+}
+.loginMain {
   background-color: white;
   margin: 20px;
   margin-top: 0;

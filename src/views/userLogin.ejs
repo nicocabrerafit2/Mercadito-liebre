@@ -3,34 +3,31 @@
   <%- include ('./partials/head') %>
 
   <body>
-    <%- include ('./partials/header') %> 
-    <main>
-      <div class="LoginCajaMain">
-        <div class="LoginMain">
-       
-          <h3 class="LoginTitulo">Iniciá tu sesión en Mercadito liebre</h3>
-          <div class="LoginFormulario">
+    <%- include ('./partials/header') %>
+    <main class="loginCajaMain">
+      <div class="loginMain">
+        <div>
+          <h3 class="loginTitulo">Iniciá tu sesión en Mercadito liebre</h3>
+          <div>
             <form action="/users/login" method="POST">
               <p>
-                <label>Correo electrónico</label>
+                <label class="labelLoginUser">Correo electrónico</label>
 
                 <input type="email" name="emailLogin" required />
               </p>
               <p>
-                <label>Contraseña</label>
+                <label class="labelLoginUser">Contraseña</label>
 
                 <input type="password" name="contrasenaLogin" required />
               </p>
-
-              <a href="">¿Olvidaste tu Contraseña?</a>
-
-              <button type="submit" class="LoginButton">Ingresar</button>
               <label for="">Recuerdame</label>
-              <input
-                class="LoginCheckbox"
-                type="checkbox"
-                name="recuerdame"
-              /><br />
+              <input type="checkbox" name="recuerdame" />
+              <br />
+              <button type="submit" class="loginButton">Ingresar</button>
+              <br />
+              <p class="loginCambioDeContraseña">
+                <a href="">¿Olvidaste tu Contraseña?</a>
+              </p>
             </form>
           </div>
         </div>
