@@ -7,26 +7,53 @@
     <main class="RegisterCajaMain">
       <div class="RegisterMain">
         <h2>Crear cuenta</h2>
-        <img src="/images/imagen_formulario.png" />
+
         <% if (locals.errores) { %> <% errores.forEach(unError => { %>
         <p><%= unError.msg %></p>
         <%}) %> <%}%>
 
         <form action="/users" enctype="multipart/form-data" method="POST">
-          <div>
-            <div id="div_file_productAdd">
-              <div>
-                <p id="texto_boton_subir_productAdd">Subir foto de perfil</p>
-                <input
-                  type="file"
-                  name="imagen"
-                  accept=".jpg"
-                  multiple
-                  id="InputBoton_subirFoto_productAdd"
-                /><br />
-              </div>
-            </div>
-          </div>
+          <input
+            type="file"
+            name="imagen"
+            accept=".jpg"
+            multiple
+            id="InputBoton_subirFoto_productAdd"
+            style="display: none"
+          />
+          <label for="InputBoton_subirFoto_productAdd">
+            <img src="/img/subir foto perfil.jpg" width="100px" />
+          </label>
+
+          <p>
+            <label class="labelRegisterUser">Provincia</label>
+            <select name="provincia">
+              <option>Buenos Aires</option>
+              <option>Buenos Aires Capital</option>
+              <option>Catamarca</option>
+              <option>Chaco</option>
+              <option>Chubut</option>
+              <option>Cordoba</option>
+              <option>Corrientes</option>
+              <option>Entre Rios</option>
+              <option>Formosa</option>
+              <option>Jujuy</option>
+              <option>La Pampa</option>
+              <option>La Rioja</option>
+              <option>Mendoza</option>
+              <option>Misiones</option>
+              <option>Neuquen</option>
+              <option>Rio Negro</option>
+              <option>Salta</option>
+              <option>San Juan</option>
+              <option>San Luis</option>
+              <option>Santa Cruz</option>
+              <option>Santa Fe</option>
+              <option>Santiago del Estero</option>
+              <option>Tierra del Fuego</option>
+              <option>Tucuman</option>
+            </select>
+          </p>
           <p>
             <label class="labelRegisterUser">Tu nombre</label>
             <input
@@ -34,18 +61,12 @@
               name="nombre"
               placeholder="Nombre y Apellido"
               minlength="2"
-              required
             />
           </p>
 
           <p>
             <label class="labelRegisterUser">Correo electrónico</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Ejemplo@email.com"
-              required
-            />
+            <input type="email" name="email" placeholder="Ejemplo@email.com" />
           </p>
 
           <p>
@@ -55,17 +76,17 @@
               name="contrasena"
               placeholder="Mínimo 8 caracteres"
               minlength="8"
-              required
             />
           </p>
 
+          <input type="checkbox" name="checkAceptaTerminos" />
+          <label style="display: inline">
+            Acepto las <a href="">Condiciones de Uso&nbsp;</a> y el
+            <a href="">Aviso de Privacidad&nbsp;</a> de
+            www.mercaditoliebre.com.</label
+          >
+          <br />
           <button type="submit">Continuar</button>
-
-          <p>
-            Al crear una cuenta, aceptas las
-            <a href="">Condiciones de Uso&nbsp;</a> y el
-            <a href="">Aviso de Privacidad&nbsp;</a> de www.mercaditoliebre.com.
-          </p>
           <p>
             ¿Ya tienes una cuenta? <a href="/users/login">Iniciar sesión</a>
           </p>
