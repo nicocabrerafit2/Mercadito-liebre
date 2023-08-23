@@ -148,4 +148,6 @@ module.exports = {
   },
   // Agregar metodo para borrar usuario (eliminar cuenta, borrado logico)
   // Agregar metodo para modificar usuario (modificar datos)
+  // Agregar metodo para buscar usuario
+  // Agregar metodo para ir al perfil de l usuario
 };

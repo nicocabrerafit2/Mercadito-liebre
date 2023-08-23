@@ -2,11 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const { validationResult } = require("express-validator");
 
-
-
-
 const controller = {
-  // Root - Show all products
+  // Show all products
   index: (req, res) => {
     res.render("Producto", {
       products,
@@ -15,14 +12,15 @@ const controller = {
     });
   },
 
-  // Detail - Detail from one product
+  // Detail from one product
   detail: (req, res) => {
     db.productos.findByPk(req.params.productoID).then(function (data) {
       let productos = data.dataValues;
-      res.render("productDetail", { productos,  user: req.session.userLogged });
+      res.render("productDetail", { productos, user: req.session.userLogged });
     });
   },
 
+  // List of products
   list: function (req, res) {
     res.render("productsList", {
       products: products,
@@ -31,14 +29,14 @@ const controller = {
     });
   },
 
-  // Create - Form to create
+  // Form to create one product
   productAdd: (req, res) => {
     res.render("productAdd", {
       user: req.session.userLogged,
     });
   },
 
-  // Create -  Method to store
+  // Method to store one product
 
   store: (req, res) => {
     let errores = validationResult(req);
@@ -95,18 +93,21 @@ const controller = {
     }
   },
 
-  // Update - Form to edit
+  // Form to edit a product
   edit: (req, res) => {
     db.productos.findByPk(req.params.productoID).then(function (data) {
       let productos = data.dataValues;
-      res.render("product-edit-form", { productos, user: req.session.userLogged });
+      res.render("product-edit-form", {
+        productos,
+        user: req.session.userLogged,
+      });
     });
   },
 
-  // Update - Method to update
+  // Method to update a product
   update: (req, res) => {
     let errores = validationResult(req);
-    console.log(req.body.nombre)
+    console.log(req.body.nombre);
     if (errores.isEmpty()) {
       let fotoProducto;
       if (req.file != undefined) {
@@ -142,16 +143,16 @@ const controller = {
       );
       res.redirect("/products/productsList");
     } else {
-      console.log(errores)
+      console.log(errores);
       res.render("product-edit-form", {
         errores: errores.array(),
-        productos: req.body, 
+        productos: req.body,
         user: req.session.userLogged,
       });
     }
   },
 
-  // Delete - Delete one product from DB
+  // Delete one product from data base
   delete: (req, res) => {
     db.productos.destroy({
       where: { productoID: req.params.productoID },

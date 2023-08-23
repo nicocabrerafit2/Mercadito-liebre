@@ -1,14 +1,12 @@
-
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const path = require("path");
 const { body } = require("express-validator");
-// **** Controller Require ****
 const productsController = require("../controllers/productsController");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../sitio_photo_art/public/images/imgP");
+    cb(null, "../sitio_photo_art/public/img/imgU");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + path.extname(file.originalname));
@@ -65,9 +63,10 @@ const upload = multer({
     }
   },
 });
- 
+
 /* GET ALL PRODUCTS */
 router.get("/", productsController.index);
+router.get("/productsList", productsController.list);
 
 /* CREATE ONE PRODUCT */
 router.get("/productAdd", productsController.productAdd);
@@ -89,8 +88,6 @@ router.put(
   validacionesRegistro,
   productsController.update
 );
-
-router.get("/productsList", productsController.list);
 
 /* DELETE ONE PRODUCT***/
 router.post("/delete/:productoID", productsController.delete);
