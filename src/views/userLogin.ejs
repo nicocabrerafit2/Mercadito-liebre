@@ -6,31 +6,26 @@
     <%- include ('./partials/header') %>
     <main class="loginCajaMain">
       <div class="loginMain">
-        <div>
-          <h3 class="loginTitulo">Iniciá tu sesión en Mercadito liebre</h3>
-          <div>
-            <form action="/users/login" method="POST">
-              <p>
-                <label class="labelLoginUser">Correo electrónico</label>
+        <h3 class="loginTitulo">Iniciá tu sesión en Mercadito liebre</h3>
 
-                <input type="email" name="emailLogin" required />
-              </p>
-              <p>
-                <label class="labelLoginUser">Contraseña</label>
+        <form action="/users/login" method="POST">
+          <label class="labelLoginUser">Correo electrónico</label>
+          <input type="email" name="emailLogin" />
 
-                <input type="password" name="contrasenaLogin" required />
-              </p>
-              <label for="">Recuerdame</label>
-              <input type="checkbox" name="recuerdame" />
-              <br />
-              <button type="submit" class="loginButton">Ingresar</button>
-              <br />
-              <p class="loginCambioDeContraseña">
-                <a href="">¿Olvidaste tu Contraseña?</a>
-              </p>
-            </form>
-          </div>
-        </div>
+          <label class="labelLoginUser">Contraseña</label>
+          <input type="password" name="contrasenaLogin" />
+          <br />
+          <label for="recuerdame">Recuerdame</label>
+          <input type="checkbox" name="recuerdame" id="recuerdame" />
+
+          <br />
+          <button type="submit" class="loginButton">Ingresar</button>
+          <br />
+
+          <p class="loginCambioDeContraseña">
+            <a href="">¿Olvidaste tu Contraseña?</a>
+          </p>
+        </form>
       </div>
     </main>
 
