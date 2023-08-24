@@ -32,7 +32,7 @@ const controller = {
   // Form to create one product
   productAdd: (req, res) => {
     res.render("productAdd", {
-      user: req.session.userLogged,
+      // Se comenta la linea siguiente por el momento hasta que implemente userLogger user: req.session.userLogged,
     });
   },
 

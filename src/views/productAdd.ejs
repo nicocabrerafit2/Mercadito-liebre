@@ -5,59 +5,47 @@
   <body>
     <%- include ('./partials/header') %>
 
-    <main class="main_productAdd">
-      <div class="caja_productAdd">
+    <main class="RegisterCajaMain">
+      <div class="RegisterMain">
         <h3>RELLENE CON LOS DATOS DEL PRODUCTO</h3>
+
+        <!--
         <% if (locals.errores) { %> <% errores.forEach(unError => { %>
         <p class="erroresRegister"><%= unError.msg %></p>
         <%}) %> <%}%>
-        <form
-          action="/products"
-          class="main_form_productAdd"
-          enctype="multipart/form-data"
-          method="POST"
-        >
-          <div class="cont_subirArchivo_productAdd">
-            <img class="img_productAdd" src="/images/file-svgrepo-com.svg" />
-            <div id="div_file_productAdd">
-              <div>
-                <p id="texto_boton_subir_productAdd">Subir Archivo</p>
-                <input
-                  type="file"
-                  name="imagen"
-                  accept=".jpg"
-                  multiple
-                  id="InputBoton_subirFoto_productAdd"
-                /><br />
-              </div>
-            </div>
-          </div>
+        -->
+        <form action="/products" enctype="multipart/form-data" method="POST">
+          <input
+            type="file"
+            name="imagen"
+            accept=".jpg"
+            multiple
+            id="InputBoton_subirFoto_productAdd"
+            style="display: none"
+          />
+          <label for="InputBoton_subirFoto_productAdd">
+            <img src="/img/subir foto perfil.jpg" width="100px" />
+          </label>
+
+          <br />
+
           <label for="nombre" class="titulo_productAdd magen_top_productAdd">
-            Nombre de producto </label
-          ><br />
+            Nombre del producto
+          </label>
+          <br />
           <input
             class="text_productAdd"
             type="text"
             name="nombre"
-            placeholder="Ingresá el nombre del producto"
             minlength="5"
-            required
           />
           <br />
 
-          <label
-            for="descripcion"
-            class="titulo_productAdd magen_top_productAdd"
+          <label class="titulo_productAdd magen_top_productAdd"
             >Descripción</label
           >
           <br />
-          <textarea
-            name="descripcion"
-            rows="6"
-            placeholder="Ingresá la descripcion del producto"
-            minlength="20"
-            required
-          ></textarea>
+          <textarea name="descripcion" rows="6"></textarea>
           <br />
 
           <div class="options_productAdd">
@@ -94,11 +82,8 @@
             <section class="option_right_productAdd">
               <h4>Tamaño</h4>
               <label
-                ><input
-                  type="radio"
-                  name="tamanoDeProducto"
-                  value="1"
-                />Pequeño A5</label
+                ><input type="radio" name="tamanoDeProducto" value="1" />Pequeño
+                A5</label
               >
               <br />
 
