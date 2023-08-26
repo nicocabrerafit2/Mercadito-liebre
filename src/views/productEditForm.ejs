@@ -3,17 +3,16 @@
   <%- include ('./partials/head') %>
 
   <body>
-
-    <%- include ('./partials/header') %> 
+    <%- include ('./partials/header') %>
 
     <main class="main_productAdd">
       <div class="caja_productAdd">
         <h3>EDITAR PRODUCTO</h3>
 
-        <% if (locals.errores) { %> <% errores.forEach(unError => { %>
+        <!-- <% if (locals.errores) { %> <% errores.forEach(unError => { %>
         <p class="erroresRegister"><%= unError.msg %></p>
-        <%}) %> <%}%> 
-        
+        <%}) %> <%}%>
+ -->
         <form
           action="/products/edit/<%= productos.productoID %>?_method=PUT"
           class="main_form_productAdd"
@@ -21,7 +20,10 @@
           method="POST"
         >
           <div class="cont_subirArchivo_productAdd">
-            <img class="img_productAdd" src="/images/imgP/<%= productos.fotoProducto %>" />
+            <img
+              class="img_productAdd"
+              src="/images/imgP/<%= productos.fotoProducto %>"
+            />
             <div id="div_file_productAdd">
               <div>
                 <p id="texto_boton_subir_productAdd">Subir Archivo</p>
@@ -60,75 +62,55 @@
             rows="6"
             placeholder="Ingresá la descripcion del producto"
             required
-          ><%=productos.descripcion%></textarea>
+          >
+<%=productos.descripcion%></textarea
+          >
           <br />
 
           <div class="options_productAdd">
             <section class="option_left_productAdd">
-              <h4>Tipo de producto</h4>
-
-              <label for="tipoDeProducto"
-                ><input
-                  type="radio"
-                  name="tipoDeProducto"
-                  value="1"
-                />Prints</label
-              >
-              <br />
-
-              <label
-                ><input
-                  type="radio"
-                  name="tipoDeProducto"
-                  value="2"
-                />Enmarcados</label
-              >
-              <br />
-              <label
-                ><input
-                  type="radio"
-                  name="tipoDeProducto"
-                  value="3"
-                />Servicios Fotográficos</label
-              >
-            </section>
-
-            <section class="option_right_productAdd">
-              <h4>Tamaño</h4>
-              <label
-                ><input
-                  type="radio"
-                  name="tamanoDeProducto"
-                  value="1"
-                />Pequeño A5</label
-              >
-              <br />
-
-              <label >
-                <input 
-                  type="radio" 
-                  name="tamanoDeProducto"
-                  value="2"
-                />Medio 20x30
+              <label class="titulo_productAdd magen_top_productAdd">
+                Tipo
               </label>
+
               <br />
 
-              <label
-                ><input
-                  type="radio"
-                  name="tamanoDeProducto"
-                  value="3"
-                />Grande 30x45</label
-              >
-              <br />
+              <select name="tipoDeProducto">
+                <option>Producto</option>
+                <option>Vehiculos</option>
+                <option>Inmuebles</option>
+                <option>Servicios</option>
+              </select>
 
-              <label
-                ><input
-                  type="radio"
-                  name="tamanoDeProducto"
-                  value="4"
-                />Master 50x70</label
-              >
+              <br />
+              <label class="titulo_productAdd magen_top_productAdd">
+                Categoria
+              </label>
+
+              <br />
+              <select name="categoriaDeProducto">
+                <option>Vehiculos</option>
+                <option>Inmuebles</option>
+                <option>Supermercado</option>
+                <option>Tecnologia</option>
+                <option>Hogar y muebles</option>
+                <option>Electrodomesticos</option>
+                <option>Herramientas</option>
+                <option>Construccion</option>
+                <option>Deportes y fitness</option>
+                <option>Accesorios para vehiculos</option>
+                <option>Moda</option>
+                <option>Juegos y juguetes</option>
+                <option>Bebes</option>
+                <option>Belleza y cuidado personal</option>
+                <option>Salud y equipamiento medico</option>
+                <option>Industrias y oficinas</option>
+                <option>Agro</option>
+                <option>Productos sustentables</option>
+                <option>Servicios</option>
+              </select>
+
+              <br />
             </section>
           </div>
 
@@ -138,7 +120,7 @@
               class="precio_text_productAdd"
               type="number"
               name="precio"
-              value="<%=productos.precio%>" 
+              value="<%=productos.precio%>"
             />
 
             <hr class="magen_top_productAdd" />
@@ -147,7 +129,7 @@
           <button type="submit" class="Login_Button_productAdd">Enviar</button>
 
           <button type="reset" class="Login_Button_productAdd">Cancelar</button>
-        </form> 
+        </form>
       </div>
     </main>
     <%- include ('./partials/footer') %>
