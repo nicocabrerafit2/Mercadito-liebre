@@ -6,7 +6,7 @@ const { body } = require("express-validator");
 const userController = require("../controllers/userController");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../Mercadito-liebre/public/img/imgU");
+    cb(null, "../Mercadito-liebre/public/img/imgUsers");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + path.extname(file.originalname));
@@ -16,7 +16,7 @@ const validacionesRegistro = [
   body("nombre")
     .notEmpty()
     .isLength({ min: 2 })
-    .withMessage("Debe introducir su nombre"),
+    .withMessage("Debe introducir su nombre de mas de 2 caracteres"),
   body("email")
     .notEmpty()
     .isEmail()
@@ -24,14 +24,14 @@ const validacionesRegistro = [
   body("contrasena")
     .notEmpty()
     .isLength({ min: 8 })
-    .withMessage("Debe introducir una contraseña más larga"),
+    .withMessage("Debe introducir una contraseña de 8 o mas caracteres"),
   body("fotoUsuario").custom(async (value, { req }) => {
     let file = req.file;
     let acceptedExtensions = [".jpg", ".png", ".jpeg"];
 
     if (!file) {
       throw new Error(
-        "Tienes que subir una imagen en alguno de estos formatos jpg-png-jpeg"
+        "Tienes que elegir una imagen en alguno de estos formatos jpg-png-jpeg"
       );
     } else {
       let fileExtension = path.extname(file.originalname);
@@ -49,14 +49,14 @@ const validacionesRegistro = [
 ];
 
 const validacionesLogin = [
-  body("emailLogin") // **** Agregar validacion que el mail no puede ser repetido con una que ya esta registrado ****
+  body("emailLogin") // **** Agregar validacion que el mail ya esta registrado para poder entrar ****
     .notEmpty()
     .isEmail()
     .withMessage("Debe introducir un mail válido (ejemplo@email.com)"),
   body("contrasenaLogin")
     .notEmpty()
     .isLength({ min: 8 })
-    .withMessage("Debe introducir una contraseña más larga"),
+    .withMessage("Debe introducir una contraseña de 8 o mas caracteres"),
 ];
 
 const upload = multer({
@@ -78,10 +78,8 @@ const upload = multer({
 router.get("/login", userController.login);
 router.get("/detail/:usuarioID", userController.detail);
 router.post("/login", validacionesLogin, userController.procesLogin);
-//Actualizar para lo nuestro
 router.get("/", userController.home);
 //router.get('/search', mainController.search)
-/* CREATE ONE USER */
 router.get("/register", userController.register);
 router.get("/logout", userController.logout);
 router.get("/userList", userController.list);
