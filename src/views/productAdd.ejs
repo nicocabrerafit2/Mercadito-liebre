@@ -5,130 +5,106 @@
   <body>
     <%- include ('./partials/header') %>
 
-    <main class="main_productAdd">
-      <div class="caja_productAdd">
-        <h3>RELLENE CON LOS DATOS DEL PRODUCTO</h3>
+    <main class="RegisterCajaMain">
+      <div class="RegisterMain">
+        <h3>DATOS DEL PRODUCTO</h3>
+
+        <!--
         <% if (locals.errores) { %> <% errores.forEach(unError => { %>
         <p class="erroresRegister"><%= unError.msg %></p>
         <%}) %> <%}%>
-        <form
-          action="/products"
-          class="main_form_productAdd"
-          enctype="multipart/form-data"
-          method="POST"
-        >
-          <div class="cont_subirArchivo_productAdd">
-            <img class="img_productAdd" src="/images/file-svgrepo-com.svg" />
-            <div id="div_file_productAdd">
-              <div>
-                <p id="texto_boton_subir_productAdd">Subir Archivo</p>
-                <input
-                  type="file"
-                  name="imagen"
-                  accept=".jpg"
-                  multiple
-                  id="InputBoton_subirFoto_productAdd"
-                /><br />
-              </div>
-            </div>
-          </div>
-          <label for="nombre" class="titulo_productAdd magen_top_productAdd">
-            Nombre de producto </label
-          ><br />
+        -->
+        <form action="/products" enctype="multipart/form-data" method="POST">
           <input
-            class="text_productAdd"
-            type="text"
-            name="nombre"
-            placeholder="Ingresá el nombre del producto"
-            minlength="5"
-            required
+            type="file"
+            name="imagen"
+            accept=".jpg"
+            multiple
+            id="InputBoton_subirFoto_productAdd"
+            style="display: none"
           />
+          <label for="InputBoton_subirFoto_productAdd">
+            <img src="/img/subir foto perfil.jpg" width="100px" />
+          </label>
+
           <br />
 
-          <label
-            for="descripcion"
-            class="titulo_productAdd magen_top_productAdd"
+          <label class="titulo_productAdd magen_top_productAdd">
+            Nombre del producto
+          </label>
+          <br />
+          <input class="text_productAdd" type="text" name="nombreDelProducto" />
+          <br />
+
+          <label class="titulo_productAdd magen_top_productAdd"
             >Descripción</label
           >
           <br />
-          <textarea
-            name="descripcion"
-            rows="6"
-            placeholder="Ingresá la descripcion del producto"
-            minlength="20"
-            required
-          ></textarea>
+          <textarea name="descripcion" rows="6"></textarea>
           <br />
 
           <div class="options_productAdd">
             <section class="option_left_productAdd">
-              <h4>Tipo de producto</h4>
+              <label class="titulo_productAdd magen_top_productAdd">
+                Tipo
+              </label>
 
-              <label for="tipoDeProducto"
-                ><input
-                  type="radio"
-                  name="tipoDeProducto"
-                  value="1"
-                />Prints</label
-              >
               <br />
 
-              <label
-                ><input
-                  type="radio"
-                  name="tipoDeProducto"
-                  value="2"
-                />Enmarcados</label
-              >
-              <br />
-              <label
-                ><input
-                  type="radio"
-                  name="tipoDeProducto"
-                  value="3"
-                  checked
-                />Servicios Fotográficos</label
-              >
-            </section>
+              <select name="tipoDeProducto">
+                <option value="1">Producto</option>
+                <option value="2">Vehiculos</option>
+                <option value="3">Inmuebles</option>
+                <option value="4">Servicios</option>
+              </select>
 
-            <section class="option_right_productAdd">
-              <h4>Tamaño</h4>
-              <label
-                ><input
-                  type="radio"
-                  name="tamanoDeProducto"
-                  value="1"
-                />Pequeño A5</label
-              >
               <br />
+              <label class="titulo_productAdd magen_top_productAdd">
+                Categoria
+              </label>
 
-              <label
-                ><input type="radio" name="tamanoDeProducto" value="2" />Medio
-                20x30</label
-              >
               <br />
+              <select name="categoriaDeProducto">
+                <option value="1">Vehiculos</option>
+                <option value="2">Inmuebles</option>
+                <option value="3">Supermercado</option>
+                <option value="4">Tecnologia</option>
+                <option value="5">Hogar y muebles</option>
+                <option value="6">Electrodomesticos</option>
+                <option value="7">Herramientas</option>
+                <option value="8">Construccion</option>
+                <option value="9">Deportes y fitness</option>
+                <option value="10">Accesorios para vehiculos</option>
+                <option value="11">Moda</option>
+                <option value="12">Juegos y juguetes</option>
+                <option value="13">Bebes</option>
+                <option value="14">Belleza y cuidado personal</option>
+                <option value="15">Salud y equipamiento medico</option>
+                <option value="16">Industrias y oficinas</option>
+                <option value="17">Agro</option>
+                <option value="18">Productos sustentables</option>
+                <option value="19">Servicios</option>
+              </select>
 
-              <label
-                ><input type="radio" name="tamanoDeProducto" value="3" />Grande
-                30x45</label
-              >
               <br />
-
-              <label
-                ><input type="radio" name="tamanoDeProducto" value="4" />Master
-                50x70</label
-              >
             </section>
           </div>
+          <label class="titulo_productAdd magen_top_productAdd"> Marca </label>
+          <br />
+          <input class="text_productAdd" type="text" name="marcaDelProducto" />
+          <br />
+          <label class="titulo_productAdd magen_top_productAdd"> Modelo </label>
+          <br />
+          <input class="text_productAdd" type="text" name="modeloDelProducto" />
 
           <div>
             <label type="text" class="titulo_productAdd">Precio:</label>
+            <br />
+
             <input
               class="precio_text_productAdd"
               type="number"
-              name="precio"
-              placeholder="Ingresá el precio del producto"
-              required
+              name="precioDelProducto"
             />
 
             <hr class="magen_top_productAdd" />

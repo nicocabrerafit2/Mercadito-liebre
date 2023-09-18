@@ -7,65 +7,98 @@
     <main class="RegisterCajaMain">
       <div class="RegisterMain">
         <h2>Crear cuenta</h2>
-        <img src="/images/imagen_formulario.png" />
+        <!-- 
         <% if (locals.errores) { %> <% errores.forEach(unError => { %>
         <p><%= unError.msg %></p>
         <%}) %> <%}%>
+        -->
 
         <form action="/users" enctype="multipart/form-data" method="POST">
-          <div>
-            <div id="div_file_productAdd">
-              <div>
-                <p id="texto_boton_subir_productAdd">Subir foto de perfil</p>
-                <input
-                  type="file"
-                  name="imagen"
-                  accept=".jpg"
-                  multiple
-                  id="InputBoton_subirFoto_productAdd"
-                /><br />
-              </div>
-            </div>
-          </div>
-          <p>
-            <label class="labelRegisterUser">Tu nombre</label>
-            <input
-              type="text"
-              name="nombre"
-              placeholder="Nombre y Apellido"
-              minlength="2"
-              required
-            />
-          </p>
+          <input
+            type="file"
+            name="imagen"
+            accept=".jpg"
+            multiple
+            id="InputBoton_subirFoto_productAdd"
+            style="display: none"
+          />
+          <label for="InputBoton_subirFoto_productAdd">
+            <img src="/img/subir foto perfil.jpg" width="100px" />
+          </label>
 
-          <p>
-            <label class="labelRegisterUser">Correo electrónico</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Ejemplo@email.com"
-              required
-            />
-          </p>
+          <label class="labelRegisterUser">Provincia</label>
+          <select name="provincia">
+            <option value="1">Buenos Aires</option>
+            <option value="2">Buenos Aires Capital</option>
+            <option value="3">Catamarca</option>
+            <option value="4">Chaco</option>
+            <option value="5">Chubut</option>
+            <option value="6">Cordoba</option>
+            <option value="7">Corrientes</option>
+            <option value="8">Entre Rios</option>
+            <option value="9">Formosa</option>
+            <option value="10">Jujuy</option>
+            <option value="12">La Pampa</option>
+            <option value="13">La Rioja</option>
+            <option value="14">Mendoza</option>
+            <option value="15">Misiones</option>
+            <option value="16">Neuquen</option>
+            <option value="17">Rio Negro</option>
+            <option value="18">Salta</option>
+            <option value="19">San Juan</option>
+            <option value="20">San Luis</option>
+            <option value="21">Santa Cruz</option>
+            <option value="22">Santa Fe</option>
+            <option value="23">Santiago del Estero</option>
+            <option value="24">Tierra del Fuego</option>
+            <option value="25">Tucuman</option>
+          </select>
+          <br />
+          <label class="labelRegisterUser">Tu nombre</label>
+          <input
+            type="text"
+            name="nombre"
+            placeholder="Nombre y Apellido"
+            minlength="2"
+          />
+          <br />
+          <label class="labelRegisterUser">Correo electrónico</label>
+          <input type="email" name="email" placeholder="Ejemplo@email.com" />
+          <br />
+          <label class="labelRegisterUser">Edad</label>
+          <input type="number" name="edad" />
+          <br />
+          <label class="labelRegisterUser">Contraseña</label>
+          <input
+            type="password"
+            name="contrasena"
+            placeholder="Mínimo 8 caracteres"
+          />
+          <br />
+          <label class="labelRegisterUser">Confirmar contraseña</label>
+          <input
+            type="password"
+            name="confirmarContrasena"
+            placeholder="Mínimo 8 caracteres"
+          />
+          <br />
+          <input
+            type="checkbox"
+            name="checkAceptaTerminos"
+            id="checkAceptaTerminos"
+            value="aceptaTerminos"
+          />
 
-          <p>
-            <label class="labelRegisterUser">Contraseña</label>
-            <input
-              type="password"
-              name="contrasena"
-              placeholder="Mínimo 8 caracteres"
-              minlength="8"
-              required
-            />
-          </p>
-
+          <label style="display: inline" for="checkAceptaTerminos">
+            Acepto las <a href="">Condiciones de Uso&nbsp;</a> y el
+            <a href="">Aviso de Privacidad&nbsp;</a> de
+            www.mercaditoliebre.com.</label
+          >
+          <br />
+          <br />
           <button type="submit">Continuar</button>
-
-          <p>
-            Al crear una cuenta, aceptas las
-            <a href="">Condiciones de Uso&nbsp;</a> y el
-            <a href="">Aviso de Privacidad&nbsp;</a> de www.mercaditoliebre.com.
-          </p>
+          <br />
+          <br />
           <p>
             ¿Ya tienes una cuenta? <a href="/users/login">Iniciar sesión</a>
           </p>
