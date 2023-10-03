@@ -1,3 +1,4 @@
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
@@ -26,9 +27,11 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `brands`
 --
+CREATE SCHEMA IF NOT EXISTS `mercaditoliebreecommerce` DEFAULT CHARACTER SET utf8; 
+USE `mercaditoliebreecommerce` ;
 
 CREATE TABLE `brands` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL ,
   `name` varchar(200) NOT NULL,
   `modelId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -40,7 +43,7 @@ CREATE TABLE `brands` (
 --
 
 CREATE TABLE `cartproduct` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL ,
   `productId` int(11) NOT NULL,
   `cartId` int(11) NOT NULL,
   `productPrice` int(11) NOT NULL,
@@ -54,7 +57,7 @@ CREATE TABLE `cartproduct` (
 --
 
 CREATE TABLE `carts` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL ,
   `userId` int(11) NOT NULL,
   `name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -66,7 +69,7 @@ CREATE TABLE `carts` (
 --
 
 CREATE TABLE `categories` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL ,
   `name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -77,7 +80,7 @@ CREATE TABLE `categories` (
 --
 
 CREATE TABLE `categoryproduct` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL ,
   `productId` int(11) NOT NULL,
   `categoryId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -89,7 +92,7 @@ CREATE TABLE `categoryproduct` (
 --
 
 CREATE TABLE `models` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL ,
   `name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -100,7 +103,7 @@ CREATE TABLE `models` (
 --
 
 CREATE TABLE `products` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL ,
   `name` varchar(200) NOT NULL,
   `description` varchar(200) NOT NULL,
   `brandId` int(11) NOT NULL,
@@ -116,7 +119,7 @@ CREATE TABLE `products` (
 --
 
 CREATE TABLE `type` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL ,
   `name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -127,7 +130,7 @@ CREATE TABLE `type` (
 --
 
 CREATE TABLE `typeproduct` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL ,
   `typeId` int(11) NOT NULL,
   `productId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -139,7 +142,7 @@ CREATE TABLE `typeproduct` (
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL ,
   `type` varchar(200) NOT NULL,
   `first name` varchar(200) NOT NULL,
   `last name` varchar(200) NOT NULL,
@@ -162,6 +165,9 @@ ALTER TABLE `brands`
   ADD PRIMARY KEY (`id`),
   ADD KEY `modelId` (`modelId`);
 
+  ALTER TABLE `brands`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- Indices de la tabla `cartproduct`
 --
@@ -170,6 +176,10 @@ ALTER TABLE `cartproduct`
   ADD KEY `productId` (`productId`),
   ADD KEY `cartId` (`cartId`);
 
+  
+ALTER TABLE `cartproduct`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- Indices de la tabla `carts`
 --
@@ -177,11 +187,18 @@ ALTER TABLE `carts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `userId` (`userId`);
 
+  ALTER TABLE `carts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- Indices de la tabla `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
+
+   
+  ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Indices de la tabla `categoryproduct`
@@ -191,11 +208,17 @@ ALTER TABLE `categoryproduct`
   ADD KEY `categoryId` (`categoryId`),
   ADD KEY `productId` (`productId`);
 
+   ALTER TABLE `categoryproduct`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- Indices de la tabla `models`
 --
 ALTER TABLE `models`
   ADD PRIMARY KEY (`id`);
+
+   ALTER TABLE `models`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Indices de la tabla `products`
@@ -204,11 +227,18 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
   ADD KEY `brandId` (`brandId`);
 
+   ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- Indices de la tabla `type`
 --
 ALTER TABLE `type`
   ADD PRIMARY KEY (`id`);
+
+  
+  ALTER TABLE `type`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Indices de la tabla `typeproduct`
@@ -218,11 +248,18 @@ ALTER TABLE `typeproduct`
   ADD KEY `productId` (`productId`),
   ADD KEY `typeId` (`typeId`);
 
+    ALTER TABLE `typeproduct`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
+  
+  ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 
 --
 -- Restricciones para tablas volcadas
@@ -266,6 +303,26 @@ ALTER TABLE `products`
 ALTER TABLE `typeproduct`
   ADD CONSTRAINT `typeproduct_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `products` (`id`),
   ADD CONSTRAINT `typeproduct_ibfk_2` FOREIGN KEY (`typeId`) REFERENCES `type` (`id`);
+
+
+  -- AUTO_INCREMENT de las tablas
+--
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
