@@ -32,8 +32,7 @@ USE `mercaditoliebreecommerce` ;
 
 CREATE TABLE `brands` (
   `id` int(11) NOT NULL ,
-  `name` varchar(200) NOT NULL,
-  `modelId` int(11) NOT NULL
+  `name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -85,16 +84,7 @@ CREATE TABLE `categoryproduct` (
   `categoryId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `models`
---
-
-CREATE TABLE `models` (
-  `id` int(11) NOT NULL ,
-  `name` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -162,8 +152,7 @@ CREATE TABLE `users` (
 -- Indices de la tabla `brands`
 --
 ALTER TABLE `brands`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `modelId` (`modelId`);
+  ADD PRIMARY KEY (`id`);
 
   ALTER TABLE `brands`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
@@ -209,15 +198,6 @@ ALTER TABLE `categoryproduct`
   ADD KEY `productId` (`productId`);
 
    ALTER TABLE `categoryproduct`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Indices de la tabla `models`
---
-ALTER TABLE `models`
-  ADD PRIMARY KEY (`id`);
-
-   ALTER TABLE `models`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -268,8 +248,6 @@ ALTER TABLE `users`
 --
 -- Filtros para la tabla `brands`
 --
-ALTER TABLE `brands`
-  ADD CONSTRAINT `brands_ibfk_1` FOREIGN KEY (`modelId`) REFERENCES `models` (`id`);
 
 --
 -- Filtros para la tabla `cartproduct`
