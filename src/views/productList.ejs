@@ -12,19 +12,20 @@
         <% for(let i =0; i < product.length; i++) { %>
         <div id="carnetUsers">
           <div class="fotoProductoCaja">
-            <%if(product[i].fotoProducto === 'default.png'){%>
+            <%if(product[i].image === 'default.png'){%>
             <img src="/images/imgP/default.png" alt="" />
             <%}else{%>
-            <img src="/images/imgP/<%= product[i].fotoProducto %>" alt="" />
+            <img src="/images/imgP/<%= product[i].image %>" alt="" />
             <%}%>
           </div>
           <article class="articleUser">
-            <p><b>ProductoID: </b> <%= product[i].productoID %></p>
-            <p><b>Nombre: </b> <%= product[i].nombre %></p>
-            <p><b>Descripcion: </b> <%= product[i].descripcion %></p>
+            <p><b>ProductoID: </b> <%= product[i].id %></p>
+            <p><b>Nombre: </b> <%= product[i].name %></p>
+            <p><b>Descripcion: </b> <%= product[i].description %></p>
+            <p><b>Marca: </b><%= product[i].brandId %></p>
             <p><b>Tipoproducto: </b> <%= product[i].tipoDeProductoID %></p>
             <p><b>Tamanoproducto: </b> <%= product[i].tamanoDeProductoID %></p>
-            <p><b>Precio: </b> $ <%= product[i].precio %></p>
+            <p><b>Precio: </b> $ <%= product[i].price %></p>
 
             <form
               action="/products/delete/<%= product[i].productoID %>"
