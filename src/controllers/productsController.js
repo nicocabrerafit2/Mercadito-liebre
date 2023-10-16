@@ -5,6 +5,7 @@ const controller = {
   index: async (req, res) => {
     try {
       const product = await Product.findAll({});
+      console.log(product);
       res.render("productList", { product });
     } catch {
       res.render("error404");

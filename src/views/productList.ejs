@@ -12,19 +12,15 @@
         <% for(let i =0; i < product.length; i++) { %>
         <div id="carnetUsers">
           <div class="fotoProductoCaja">
-            <%if(product[i].image === 'default.png'){%>
-            <img src="/images/imgP/default.png" alt="" />
-            <%}else{%>
-            <img src="/images/imgP/<%= product[i].image %>" alt="" />
-            <%}%>
+          
+            <img src="/img/imgProducts/<%= product[i].image %>" alt="" width="150px"/>
+          
           </div>
           <article class="articleUser">
             <p><b>ProductoID: </b> <%= product[i].id %></p>
             <p><b>Nombre: </b> <%= product[i].name %></p>
             <p><b>Descripcion: </b> <%= product[i].description %></p>
             <p><b>Marca: </b><%= product[i].brandId %></p>
-            <p><b>Tipoproducto: </b> <%= product[i].tipoDeProductoID %></p>
-            <p><b>Tamanoproducto: </b> <%= product[i].tamanoDeProductoID %></p>
             <p><b>Precio: </b> $ <%= product[i].price %></p>
 
             <form
