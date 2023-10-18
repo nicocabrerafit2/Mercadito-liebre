@@ -1,50 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include ('./partials/head') %>
+<%- include ('./partials/head') %>
 
   <body>
     <%- include ('./partials/header') %>
 
-    <main class="RegisterCajaMain">
-      <div class="RegisterMain">
-        <h3>DATOS DEL PRODUCTO</h3>
+      <main class="RegisterCajaMain">
+        <div class="RegisterMain">
+          <h3>DATOS DEL PRODUCTO</h3>
 
-        <!--
+          <!--
         <% if (locals.errores) { %> <% errores.forEach(unError => { %>
         <p class="erroresRegister"><%= unError.msg %></p>
         <%}) %> <%}%>
         -->
-        <form action="/products" enctype="multipart/form-data" method="POST">
-          <input
-            type="file"
-            name="imagen"
-            accept=".jpg"
-            multiple
-            id="InputBoton_subirFoto_productAdd"
-            style="display: none"
-          />
-          <label for="InputBoton_subirFoto_productAdd">
-            <img src="/img/subir foto perfil.jpg" width="100px" />
-          </label>
+          <form action="/products/productAdd" method="POST">
 
-          <br />
 
-          <label class="titulo_productAdd magen_top_productAdd">
-            Nombre del producto
-          </label>
-          <br />
-          <input class="text_productAdd" type="text" name="nombreDelProducto" />
-          <br />
+            <br />
+            <label class="titulo_productAdd magen_top_productAdd">
+              Nombre de su imagen
+            </label>
+            <br />
+            <input class="text_productAdd" type="text" name="image" />
+            <br />
+            <label class="titulo_productAdd magen_top_productAdd">
+              Nombre del producto
+            </label>
+            <br />
+            <input class="text_productAdd" type="text" name="name" />
+            <br />
 
-          <label class="titulo_productAdd magen_top_productAdd"
-            >Descripción</label
-          >
-          <br />
-          <textarea name="descripcion" rows="6"></textarea>
-          <br />
+            <label class="titulo_productAdd magen_top_productAdd">Descripción</label>
+            <br />
+            <textarea name="description" rows="6"></textarea>
+            <br />
 
-          <div class="options_productAdd">
-            <section class="option_left_productAdd">
+            <div class="options_productAdd">
+
               <label class="titulo_productAdd magen_top_productAdd">
                 Tipo
               </label>
@@ -52,70 +45,60 @@
               <br />
 
               <select name="tipoDeProducto">
-                <option value="1">Producto</option>
-                <option value="2">Vehiculos</option>
-                <option value="3">Inmuebles</option>
-                <option value="4">Servicios</option>
+                <option value="">Selecciona una opción</option>
+                <% types.forEach(oneType=>{%>
+                  <option value="<%= oneType.id %>">
+                    <%= oneType.name %>
+                  </option>
+                  <% }) %>
               </select>
 
               <br />
-              <label class="titulo_productAdd magen_top_productAdd">
-                Categoria
-              </label>
 
+              <label class="titulo_productAdd magen_top_productAdd">Categoria</label>
               <br />
-              <select name="categoriaDeProducto">
-                <option value="1">Vehiculos</option>
-                <option value="2">Inmuebles</option>
-                <option value="3">Supermercado</option>
-                <option value="4">Tecnologia</option>
-                <option value="5">Hogar y muebles</option>
-                <option value="6">Electrodomesticos</option>
-                <option value="7">Herramientas</option>
-                <option value="8">Construccion</option>
-                <option value="9">Deportes y fitness</option>
-                <option value="10">Accesorios para vehiculos</option>
-                <option value="11">Moda</option>
-                <option value="12">Juegos y juguetes</option>
-                <option value="13">Bebes</option>
-                <option value="14">Belleza y cuidado personal</option>
-                <option value="15">Salud y equipamiento medico</option>
-                <option value="16">Industrias y oficinas</option>
-                <option value="17">Agro</option>
-                <option value="18">Productos sustentables</option>
-                <option value="19">Servicios</option>
+              <select name="categories" multiple>
+                <option value="">Selecciona una opción</option>
+                <% categories.forEach(oneCategory=>{%>
+                  <option value="<%= oneCategory.id %>">
+                    <%= oneCategory.name %>
+                  </option>
+                  <% }) %>
               </select>
-
               <br />
-            </section>
-          </div>
-          <label class="titulo_productAdd magen_top_productAdd"> Marca </label>
-          <br />
-          <input class="text_productAdd" type="text" name="marcaDelProducto" />
-          <br />
-          <label class="titulo_productAdd magen_top_productAdd"> Modelo </label>
-          <br />
-          <input class="text_productAdd" type="text" name="modeloDelProducto" />
 
-          <div>
-            <label type="text" class="titulo_productAdd">Precio:</label>
-            <br />
+              <label class="titulo_productAdd magen_top_productAdd"> Marca </label>
+              <br />
+              <select name="brandId">
+                <option value="">Selecciona una opción</option>
+                <% brands.forEach(oneBrand=>{%>
+                  <option value="<%= oneBrand.id %>">
+                    <%= oneBrand.name %>
+                  </option>
+                  <% }) %>
+              </select>
+              <br />
 
-            <input
-              class="precio_text_productAdd"
-              type="number"
-              name="precioDelProducto"
-            />
+              <label class="titulo_productAdd magen_top_productAdd"> Modelo </label>
+              <br />
+              <input class="text_productAdd" type="text" name="modeloDelProducto" />
 
-            <hr class="magen_top_productAdd" />
-          </div>
+              <div>
+                <label type="text" class="titulo_productAdd">Precio:</label>
+                <br />
 
-          <button type="submit" class="Login_Button_productAdd">Enviar</button>
+                <input class="precio_text_productAdd" type="number" name="price" />
 
-          <button type="reset" class="Login_Button_productAdd">Cancelar</button>
-        </form>
-      </div>
-    </main>
-    <%- include ('./partials/footer') %>
+                <hr class="magen_top_productAdd" />
+              </div>
+
+              <button type="submit" class="Login_Button_productAdd">Enviar</button>
+
+              <button type="reset" class="Login_Button_productAdd">Cancelar</button>
+          </form>
+        </div>
+      </main>
+      <%- include ('./partials/footer') %>
   </body>
+
 </html>
