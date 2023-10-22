@@ -34,10 +34,11 @@ const controller = {
     }
   },
   // Detail from one product
-  detail: (req, res) => {},
-
-  // Method to store one product
-
+  detail: async (req, res) => {
+    const productID = req.params.id;
+    const productFinded = await Product.findByPk(productID);
+    return res.render("productDetail", { productFinded });
+  },
   // Form to edit a product
   edit: async (req, res) => {
     try {
@@ -49,9 +50,6 @@ const controller = {
       res.render("error404");
     }
   },
-
-  // Method to update a product
-
   // Delete one product from data base
   destroy: async (req, res) => {
     const productID = req.params.id;

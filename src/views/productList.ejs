@@ -35,9 +35,13 @@
                 <form action="/products/destroy/<%= product[i].id %>" method="POST">
                   <button type="submit" class="LoginButton">Eliminar</button>
                 </form>
-                <form action="/products/edit/<%= product[i].productoID %>" method="GET">
+                <form action="/products/edit/<%= product[i].id %>" method="GET">
                   <button type="submit" class="LoginButton">Editar</button>
                 </form>
+
+                <a href="/products/detail/<%= product[i].id %>">Detalle</a>
+
+
               </article>
             </div>
             <% } %>

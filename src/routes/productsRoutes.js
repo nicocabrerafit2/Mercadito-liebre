@@ -10,7 +10,7 @@ router.get("/productAdd", productsController.create);
 router.post("/productAdd", productsController.store);
 
 /* GET ONE PRODUCT DETAIL */
-router.get("/detail/:productoID", productsController.detail);
+router.get("/detail/:id", productsController.detail);
 
 /* EDIT ONE PRODUCT */
 router.get("/edit/:productoID", productsController.edit);
