@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include ('./partials/head') %>
+<%- include ('./partials/head') %>
 
   <body>
     <%- include ('./partials/header') %>
-    <main id="carnet">
-      <br /><br /><br /><br />
-      <h2>LISTADO DE PRODUCTOS</h2>
+      <main id="carnet">
+        <br /><br /><br /><br />
+        <h2>LISTADO DE PRODUCTOS</h2>
 
-      <section class="mainUser">
-        <% for(let i =0; i < product.length; i++) { %>
-        <div id="carnetUsers">
-          <div class="fotoProductoCaja">
-          
-            <img src="/img/imgProducts/<%= product[i].image %>" alt="" width="150px"/>
-          
-          </div>
-          <article class="articleUser">
-            <p><b>ProductoID: </b> <%= product[i].id %></p>
-            <p><b>Nombre: </b> <%= product[i].name %></p>
-            <p><b>Descripcion: </b> <%= product[i].description %></p>
-            <p><b>Marca: </b><%= product[i].brand.name %></p>
-            <p><b>Precio: </b> $ <%= product[i].price %></p>
+        <section class="mainUser">
+          <% for(let i=0; i < product.length; i++) { %>
+            <div id="carnetUsers">
+              <div class="fotoProductoCaja">
 
-            <form
-              action="/products/delete/<%= product[i].productoID %>"
-              method="POST"
-            >
-              <button type="submit" class="LoginButton">Eliminar</button>
-            </form>
-            <form
-              action="/products/edit/<%= product[i].productoID %>"
-              method="GET"
-            >
-              <button type="submit" class="LoginButton">Editar</button>
-            </form>
-          </article>
-        </div>
-        <% } %>
-      </section>
-    </main>
+                <img src="/img/imgProducts/<%= product[i].image %>" alt="" width="150px" />
 
-    <%- include ('./partials/footer') %>
+              </div>
+              <article class="articleUser">
+                <p><b>ProductoID: </b>
+                  <%= product[i].id %>
+                </p>
+                <p><b>Nombre: </b>
+                  <%= product[i].name %>
+                </p>
+                <p><b>Descripcion: </b>
+                  <%= product[i].description %>
+                </p>
+                <p><b>Marca: </b>
+                  <%= product[i].brand.name %>
+                </p>
+                <p><b>Precio: </b> $ <%= product[i].price %>
+                </p>
+
+                <form action="/products/destroy/<%= product[i].id %>" method="POST">
+                  <button type="submit" class="LoginButton">Eliminar</button>
+                </form>
+                <form action="/products/edit/<%= product[i].productoID %>" method="GET">
+                  <button type="submit" class="LoginButton">Editar</button>
+                </form>
+              </article>
+            </div>
+            <% } %>
+        </section>
+      </main>
+
+      <%- include ('./partials/footer') %>
   </body>
+
 </html>
