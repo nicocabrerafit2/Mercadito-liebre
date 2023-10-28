@@ -5,7 +5,9 @@ const controller = {
   // Show all products
   productList: async (req, res) => {
     try {
-      const product = await Product.findAll({ include: ["brand"] });
+      const product = await Product.findAll({
+        include: ["brand", "categories"],
+      });
       res.render("productList", { product });
     } catch {
       res.render("error404");
@@ -36,16 +38,40 @@ const controller = {
   // Detail from one product
   detail: async (req, res) => {
     const productID = req.params.id;
-    const productFinded = await Product.findByPk(productID);
+    const productFinded = await Product.findByPk(productID, {
+      include: ["brand", "categories"],
+    });
     return res.render("productDetail", { productFinded });
   },
   // Form to edit a product
-  edit: async (req, res) => {
+  editForm: async (req, res) => {
     try {
       const types = await Type.findAll();
       const categories = await Category.findAll();
       const brands = await Brand.findAll();
-      res.render("productEditForm", { brands, types, categories });
+      const productID = req.params.id;
+      const productFinded = await Product.findByPk(productID, {
+        include: ["brand", "categories"],
+      });
+
+      res.render("productEditForm", {
+        productFinded,
+        brands,
+        types,
+        categories,
+      });
+    } catch {
+      res.render("error404");
+    }
+  },
+
+  edit: async (req, res) => {
+    try {
+      const productID = req.params.id;
+      const productFinded = await Product.update(req.body, {
+        where: { id: productID },
+      });
+      return res.redirect("/products");
     } catch {
       res.render("error404");
     }

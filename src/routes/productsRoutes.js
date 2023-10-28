@@ -13,7 +13,8 @@ router.post("/productAdd", productsController.store);
 router.get("/detail/:id", productsController.detail);
 
 /* EDIT ONE PRODUCT */
-router.get("/edit/:productoID", productsController.edit);
+router.get("/edit/:id", productsController.editForm);
+router.put("/edit/:id", productsController.edit);
 
 /* DELETE ONE PRODUCT***/
 router.post("/destroy/:id", productsController.destroy);
