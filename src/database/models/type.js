@@ -6,6 +6,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  Type.associate = function (models) {};
+  Type.associate = function (models) {
+    Type.belongsToMany(models.Product, {
+      as: "products",
+      through: "typeProduct",
+      foreignKey: "typeId",
+      otherKey: "productId",
+    });
+  };
   return Type;
 };

@@ -33,7 +33,7 @@
 
             <label class="titulo_productAdd magen_top_productAdd">Descripción</label>
             <br />
-            <textarea name="description" rows="6" value="<%= productFinded.description %>"></textarea>
+            <textarea name="description" rows="6"><%= productFinded.description %></textarea>
             <br />
 
             <div class="options_productAdd">
@@ -59,7 +59,8 @@
               <select name="categories" multiple>
                 <option value="">Selecciona una opción</option>
                 <% categories.forEach(oneCategory=>{%>
-                  <option value="<%= oneCategory.id %>" <%=oneCategory.id===categories.categoryId ? 'selected' :'' %>
+                  <option value="<%= oneCategory.id %>" <%=oneCategory.id===productFinded.categories.id ? 'selected' :''
+                    %>
                     >
                     <%= oneCategory.name %>
                   </option>

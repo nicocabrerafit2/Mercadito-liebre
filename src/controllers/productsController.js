@@ -6,7 +6,7 @@ const controller = {
   productList: async (req, res) => {
     try {
       const product = await Product.findAll({
-        include: ["brand", "categories"],
+        include: ["brand", "categories", "types"],
       });
       res.render("productList", { product });
     } catch {
@@ -30,6 +30,7 @@ const controller = {
     try {
       const productStore = await Product.create(req.body);
       productStore.addCategories(req.body.categories);
+      productStore.addTypes(req.body.types);
       return res.redirect("/products");
     } catch {
       res.render("error404");
@@ -39,7 +40,7 @@ const controller = {
   detail: async (req, res) => {
     const productID = req.params.id;
     const productFinded = await Product.findByPk(productID, {
-      include: ["brand", "categories"],
+      include: ["brand", "categories", "types"],
     });
     return res.render("productDetail", { productFinded });
   },
@@ -51,7 +52,7 @@ const controller = {
       const brands = await Brand.findAll();
       const productID = req.params.id;
       const productFinded = await Product.findByPk(productID, {
-        include: ["brand", "categories"],
+        include: ["brand", "categories", "types"],
       });
 
       res.render("productEditForm", {
@@ -71,6 +72,8 @@ const controller = {
       const productFinded = await Product.update(req.body, {
         where: { id: productID },
       });
+      productFinded.addCategories(req.body.categories);
+      productFinded.addTypes(req.body.types);
       return res.redirect("/products");
     } catch {
       res.render("error404");
