@@ -31,7 +31,6 @@ const controller = {
       const productStore = await Product.create(req.body);
       productStore.addCategories(req.body.categories);
       productStore.addTypes(req.body.types);
-      console.log(req.body);
       return res.redirect("/products");
     } catch {
       res.render("error404");
@@ -55,7 +54,6 @@ const controller = {
       const productFinded = await Product.findByPk(productID, {
         include: ["brand", "categories", "types"],
       });
-
       res.render("productEditForm", {
         productFinded,
         brands,
