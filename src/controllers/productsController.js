@@ -1,5 +1,12 @@
 // Declaración de desestructuración que asigna los modelos Product, Brand, Type y Category a las variables correspondientes.
-const { Product, Brand, Type, Category } = require("../database/models");
+const {
+  Product,
+  Brand,
+  Type,
+  Category,
+  productType,
+  productCategory,
+} = require("../database/models");
 
 const controller = {
   // Show all products
@@ -50,6 +57,16 @@ const controller = {
       const types = await Type.findAll();
       const categories = await Category.findAll();
       const brands = await Brand.findAll();
+      const TypeProductFinded = await productType.findAll({
+        where: {
+          productId: req.params.id,
+        },
+      });
+      const CategoryProductFinded = await productCategory.findAll({
+        where: {
+          productId: req.params.id,
+        },
+      });
       const productID = req.params.id;
       const productFinded = await Product.findByPk(productID, {
         include: ["brand", "categories", "types"],
@@ -59,6 +76,8 @@ const controller = {
         brands,
         types,
         categories,
+        TypeProductFinded,
+        CategoryProductFinded,
       });
     } catch {
       res.render("error404");
@@ -71,11 +90,12 @@ const controller = {
       const productFinded = await Product.update(req.body, {
         where: { id: productID },
       });
+      console.log(req.body);
       productFinded.addCategories(req.body.categories);
       productFinded.addTypes(req.body.types);
       return res.redirect("/products");
     } catch {
-      res.render("error404");
+      res.json("error404aaa");
     }
   },
   // Delete one product from data base

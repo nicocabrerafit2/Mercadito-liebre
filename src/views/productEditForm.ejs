@@ -45,12 +45,10 @@
               <br />
 
               <select name="types">
-
                 <option value="">Selecciona una opción</option>
                 <% types.forEach(oneType=>{%>
-                  <option value="<%= oneType.id %>">
+                  <option value="<%= oneType.id %>" <%=oneType.id===TypeProductFinded[0].typeId ? 'selected' :'' %>>
                     <%=oneType.name %>
-
                   </option>
                   <% }) %>
               </select>
@@ -62,7 +60,9 @@
               <select name="categories" multiple>
                 <option value="">Selecciona una opción</option>
                 <% categories.forEach(oneCategory=>{%>
-                  <option value="<%= oneCategory.id %>">
+                  <option value="<%= oneCategory.id %>" <%=oneCategory.id===CategoryProductFinded[0].categoryId
+                    ? 'selected' :'' %>
+                    >
                     <%= oneCategory.name %>
                   </option>
                   <% }) %>
