@@ -86,13 +86,23 @@ const controller = {
 
   edit: async (req, res) => {
     try {
-      const productID = req.params.id;
+      const productParamsID = req.params.id;
       const productFinded = await Product.update(req.body, {
-        where: { id: productID },
+        where: { id: productParamsID },
       });
-      console.log(req.body);
-      productFinded.addCategories(req.body.categories);
-      productFinded.addTypes(req.body.types);
+      const categoryFinded = await productCategory.update(
+        { categoryId: req.body.categories },
+        {
+          where: { productId: productParamsID },
+        }
+      );
+      const typeFinded = await productType.update(
+        { typeId: req.body.types },
+        {
+          where: { productId: productParamsID },
+        }
+      );
+
       return res.redirect("/products");
     } catch {
       res.json("error404aaa");

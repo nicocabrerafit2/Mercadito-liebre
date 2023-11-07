@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Type.associate = function (models) {
     Type.belongsToMany(models.Product, {
-      as: "products",
+      as: "productsType",
       through: "typeProduct",
       foreignKey: "typeId",
       otherKey: "productId",
