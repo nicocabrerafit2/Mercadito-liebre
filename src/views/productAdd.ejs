@@ -45,7 +45,7 @@
               <br />
 
               <select name="types">
-                <option value="">Selecciona una opción</option>
+
                 <% types.forEach(oneType=>{%>
                   <option value="<%= oneType.id %>">
                     <%= oneType.name %>
@@ -58,7 +58,7 @@
               <label class="titulo_productAdd magen_top_productAdd">Categoria</label>
               <br />
               <select name="categories" multiple>
-                <option value="">Selecciona una opción</option>
+
                 <% categories.forEach(oneCategory=>{%>
                   <option value="<%= oneCategory.id %>">
                     <%= oneCategory.name %>
